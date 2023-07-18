@@ -7,7 +7,5 @@ public enum ObjetStyle {
     equipement,
     potion,
     special,
-    legendaire,
-    cart,
     bonus;
 }

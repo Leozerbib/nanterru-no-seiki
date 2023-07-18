@@ -10,6 +10,7 @@ public enum boost {
     hp,
     speed,
     shield,
-    energie;
+    energie,
+    force;
 }
 

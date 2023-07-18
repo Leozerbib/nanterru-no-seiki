@@ -26,7 +26,9 @@ public abstract class charactere {
     private double speed;
     @Getter@Setter
     private int num;
-    public charactere(String name,String type,int num,int maxHP,double hp,double exp, int att,double def,double speed,double acc,double shield){
+    @Getter@Setter
+    public  double actualshield;
+    public charactere(String name,String type,int num,int maxHP,double hp,double exp, int att,double def,double speed,double acc,double shield,double actualshield){
         this.name=name;
         this.type=type;
         this.num=num;
@@ -38,6 +40,7 @@ public abstract class charactere {
         this.speed=speed;
         this.acc=acc;
         this.shield=shield;
+        this.actualshield=actualshield;
 
     }
 

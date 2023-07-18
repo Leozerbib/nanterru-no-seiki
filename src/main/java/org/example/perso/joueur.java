@@ -17,16 +17,17 @@ public class joueur extends charactere{
     private CharClass Chartype;
     private int chance;
     private int intel;
-    private int crit;
+    private double crit;
     private double actualEnergie;
     private double enrgie;
     private double CritChan;
     private int force;
     private ArrayList<competence> listecompetence;
-    private ArrayList<objet> inventaire;
+    private ArrayList<ArrayList<objet>> inventaire;
     public equip equip;
-    public joueur(String name, String type, int num,int maxHP, double hp, double exp, int att, double def, double speed,double acc, double shield,int level,CharClass Chartype,int chance,int intel, int crit,double actualEnergie,double enrgie,double CritChan,int force,ArrayList<competence> listecompetence,ArrayList<objet> inventaire,equip equip) {
-        super(name, type,num, maxHP, hp, exp, att, def,speed, acc, shield);
+
+    public joueur(String name, String type, int num,int maxHP, double hp, double exp, int att, double def, double speed,double acc, double shield,double actualshield,int level,CharClass Chartype,int chance,int intel, double crit,double actualEnergie,double enrgie,double CritChan,int force,ArrayList<competence> listecompetence,ArrayList<ArrayList<objet>> inventaire,equip equip) {
+        super(name, type,num, maxHP, hp, exp, att, def,speed, acc, shield,actualshield);
         this.chance=chance;
         this.Chartype=Chartype;
         this.crit=crit;
@@ -93,6 +94,20 @@ public class joueur extends charactere{
         for (int i = 0; i < longueurBarre; i++) {
             if (i < remplissage) {
                 System.out.print(coulPos+" "); // Caractère bleu pour le remplissage de la barre
+            } else {
+                System.out.print(coulNeg+ " "); // Caractère vide pour le reste de la barre
+            }
+        }
+        System.out.println("\u001B[0m"+"] " + "\u001B[33m"+ valeur + "\u001B[0m");
+    }
+    public static void afficherBarreBle(int pourcentage,charactere player,double valeur,String type,String coulPos,String coulNeg,String Neut) {
+        int longueurBarre = 30; // Longueur de la barre en caractères
+        int remplissage = (int) (pourcentage / 100.0 * longueurBarre); // Calcul du nombre de caractères à remplir
+
+        System.out.print(type+" : [");
+        for (int i = 0; i < longueurBarre; i++) {
+            if (i < remplissage) {
+                System.out.print(coulPos+"H"); // Caractère bleu pour le remplissage de la barre
             } else {
                 System.out.print(coulNeg+ " "); // Caractère vide pour le reste de la barre
             }

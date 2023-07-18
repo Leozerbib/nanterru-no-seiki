@@ -31,7 +31,7 @@ public enum competence {
     competence11b("B", 2, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(50, org.example.perso.boost.att, 2)}, new effecter[]{new effecter(3, org.example.perso.effect.damage, 1)},20,false),
     competence12b("B", 2, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(50, org.example.perso.boost.att, 2)}, new effecter[]{new effecter(3, org.example.perso.effect.damage, 1)},20,false),
 
-    competence1c("Attack basic", 3, "sous skil mgl", org.example.perso.type.active, new booster[]{}, new effecter[]{new effecter(50, org.example.perso.effect.damage, 1)},1,false),
+    competence1c("Attack basic", 3, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(50, org.example.perso.boost.att, 2)}, new effecter[]{new effecter(50, org.example.perso.effect.damage, 1)},1,false),
     competence2c("Boost att", 3, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(1000, org.example.perso.boost.att, 2)}, new effecter[]{new effecter(2, org.example.perso.effect.damage, 1)},1,false),
     competence3c("Boost Speed", 3, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(100, org.example.perso.boost.speed, 1)}, new effecter[]{new effecter(2, org.example.perso.effect.damage, 1)},1,false),
     competence4c("C", 3, "sous skil mgl", org.example.perso.type.active, new booster[]{new booster(50, org.example.perso.boost.att, 2)}, new effecter[]{new effecter(3, org.example.perso.effect.damage, 1)},1,false),

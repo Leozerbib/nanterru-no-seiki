@@ -5,13 +5,19 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 
-public abstract class equipement extends objet{
+public class equipement extends objet{
     public objetType type;
-    public booster[] boost;
-    public equipement(String name, String desc, int id, org.example.perso.rarete rarete, ObjetStyle Type,objetType type,booster[] boost) {
-        super(name, desc, id, rarete, ObjetStyle.equipement);
+
+    public ArrayList<booster> boost;
+    public int niveau;
+
+    public equipement(String name, String desc, int id, org.example.perso.rarete rarete, ObjetStyle Typ, objetType type,ArrayList<booster> boost,int poid, int number,int niveau) {
+        super(name, desc, id, rarete, Typ, poid, number);
         this.type=type;
         this.boost=boost;
+        this.niveau=niveau;
 
     }
+
+
   }

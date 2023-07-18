@@ -2,12 +2,26 @@ package org.example.mechanic;
 import java.awt.Color;
 
 import org.example.method;
+import org.example.perso.equipement;
 import org.example.perso.joueur;
+import org.example.perso.rarete;
+
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.util.ArrayList;
+import java.util.Random;
 
 import static org.example.mechanic.Start.listeplay;
 import static org.example.mechanic.Start.sc;
 
 public class MethodGen {
+    static GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    static Font[] fonts = ge.getAllFonts();
+
+    // Afficher toutes les polices disponibles
+
+    // Modifier la taille de la police de la console
+
     static String reset = "\u001B[0m";
     static String bold = "\u001B[1m";
     static String yellow = "\u001B[33m";
@@ -59,7 +73,31 @@ public class MethodGen {
             System.out.println("\u001B[0m");
         }
     }
-
+    public static equipement mysterieBox(ArrayList<equipement> box,int type){
+        double random =new Random().nextDouble();
+        System.out.println(random);
+        rarete rarete=null;
+        equipement equi=null;
+        if (random< rarete.Moonrock.getDrop() && type==1){
+            rarete= org.example.perso.rarete.Moonrock;
+        } else if (random<rarete.CaliWeed.getDrop() && type==1) {
+            rarete= org.example.perso.rarete.CaliWeed;
+        }else if (random<rarete.weed.getDrop() && type<3) {
+            rarete= org.example.perso.rarete.weed;
+        }else if (random<rarete.filtrer.getDrop()) {
+            rarete= org.example.perso.rarete.filtrer;
+        }else if (random<rarete.Galienni.getDrop()) {
+            rarete= org.example.perso.rarete.Galienni;
+        }
+        System.out.println(rarete);
+        do {
+            int random2 =new Random().nextInt(box.size());
+            equi=box.get(random2);
+            System.out.println(equi.getRarete());
+        }while (equi.getRarete()!=rarete);
+        System.out.println("vous avez recu : "+equi.getName() +"    "+equi.type+"    "+equi.getRarete());
+        return equi;
+    }
     public static void menu(){
         method.clearConsole();
         method.printLine(50);
@@ -139,6 +177,7 @@ public class MethodGen {
     }
 
     public static void afficherMenuEnGros(String Word) {
+        System.setProperty("console.font", "Arial-56");
         // Code pour effacer la console (fonctionne dans la plupart des consoles)
         System.out.print("\033[H\033[2J");
 
@@ -154,6 +193,7 @@ public class MethodGen {
         }
 
         System.out.println(grosMessage);
+        System.setProperty("console.font", "Arial-16");
     }
 
 }

@@ -9,14 +9,14 @@ public class booster {
     private boost type;
     private int turn;
 
-    public booster(int boost, boost type, int turn) {
+    public booster(double boost, boost type, int turn) {
         this.boost = boost;
         this.type = type;
         this.turn = turn;
     }
 
 
-    public static void appliquerEffet(joueur joueur,booster Effet) {
+    public static void appliquerEffet(charactere joueur,booster Effet) {
         org.example.perso.boost typeEffet = Effet.getType();
         switch (typeEffet) {
             case att:
@@ -27,10 +27,10 @@ public class booster {
                 applyDefenseBoost(joueur,Effet);
                 break;
             case crit:
-                // Logique pour appliquer le boost de coup critique
+                applycritBoost((org.example.perso.joueur) joueur,Effet);
                 break;
             case critChance:
-                // Logique pour appliquer le boost de chance de coup critique
+                applyCritchanBoost((org.example.perso.joueur) joueur,Effet);
                 break;
             case acc:
                 // Logique pour appliquer le boost de précision
@@ -66,10 +66,10 @@ public class booster {
                 lyDefenseBoost(joueur,Effet);
                 break;
             case crit:
-                // Logique pour appliquer le boost de coup critique
+                lycritBoost((org.example.perso.joueur) joueur,Effet);
                 break;
             case critChance:
-                // Logique pour appliquer le boost de chance de coup critique
+                lyCritchanBoost((org.example.perso.joueur) joueur,Effet);
                 break;
             case acc:
                 // Logique pour appliquer le boost de précision
@@ -109,8 +109,8 @@ public class booster {
     }
 
     public static void applycritBoost(joueur player, booster booster) {
-        int current = player.getCrit();
-        player.setCrit((int) (current + booster.boost));
+        double current = player.getCrit();
+        player.setCrit( current* booster.boost);
     }
 
     public static void applyCritchanBoost(joueur player, booster booster) {
@@ -154,8 +154,8 @@ public class booster {
     }
 
     public static void lycritBoost(joueur player, booster booster) {
-        int current = player.getCrit();
-        player.setCrit((int) (current - booster.boost));
+        double current = player.getCrit();
+        player.setCrit(current/booster.boost);
     }
 
     public static void lyCritchanBoost(joueur player, booster booster) {
